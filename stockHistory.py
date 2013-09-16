@@ -5,10 +5,13 @@
 
 
 __author__ = 'nooper'
-from getWeb import httpGetContent
 import cStringIO
 import csv
+
 from bs4 import BeautifulSoup
+
+from httpGet import httpGetContent
+
 
 #年
 years = ["2010", "2011", "2012", "2013"]
@@ -16,7 +19,7 @@ years = ["2010", "2011", "2012", "2013"]
 quarter = [1, 2, 3, 4]
 
 
-def getStockDayHistory(stock_code, year, qr):
+def stock_day_history_sina(stock_code, year, qr):
     """
     stockcode:股票代码
     market：市场
@@ -69,7 +72,7 @@ def getStockDayHistory(stock_code, year, qr):
 
 
 # todo 完成测试
-def getStockDayHistoryByYahoo(code, market):
+def stock_day_history_Yahoo(code, market):
     """
     雅虎股票数据接口
     得到yahoo股票的历史数据信息
@@ -94,15 +97,13 @@ def getStockDayHistoryByYahoo(code, market):
             stock_dict = {}
             if i == 0:
                 continue
-            if i > 2000:
-                break
-            stock_dict['date'] = row[0] #日期
-            stock_dict['open'] = float(row[1]) #开盘价格
-            stock_dict['high'] = float(row[2]) #最高价格
-            stock_dict['low'] = float(row[3]) #最低价格
-            stock_dict['close'] = float(row[4]) #结束价格
-            stock_dict['volume'] = float(row[5]) #量
-            stock_dict['adj_close'] = float(row[6]) #几日收盘加权价格？
+            stock_dict['date'] = row[0]             # 日期
+            stock_dict['open'] = float(row[1])      # 开盘价格
+            stock_dict['high'] = float(row[2])      # 最高价格
+            stock_dict['low'] = float(row[3])       # 最低价格
+            stock_dict['close'] = float(row[4])     # 结束价格
+            stock_dict['volume'] = float(row[5])    # 量
+            stock_dict['adj_close'] = float(row[6]) # 几日收盘加权价格？
             yield stock_dict
 
 
