@@ -4,12 +4,13 @@
 
 __author__ = 'nooper'
 
+import datetime
 import re
 from math import ceil
-import datetime
 
 from httpGet import httpGetContent
-from common import decimal
+
+from stockqtl.common import decimal
 
 
 def _get_content(content):

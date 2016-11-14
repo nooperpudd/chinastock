@@ -5,13 +5,12 @@
 
 
 __author__ = 'nooper'
-import cStringIO
 import csv
 
+import cStringIO
 from bs4 import BeautifulSoup
 
-from httpGet import httpGetContent
-
+from stockqtl.httpGet import httpGetContent
 
 #年
 years = ["2010", "2011", "2012", "2013"]

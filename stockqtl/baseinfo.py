@@ -7,18 +7,15 @@
 #
 #
 __author__ = 'nooper'
-import re
 import json
-import cStringIO
 import os
+import re
 
+import cStringIO
 from bs4 import BeautifulSoup
-
 from httpGet import httpGetContent
-from common import decimal, validate_decimal, str_to_date
 
-
-
+from stockqtl.common import decimal, validate_decimal, str_to_date
 
 
 #todo  正常可以用
