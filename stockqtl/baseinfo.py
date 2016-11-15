@@ -18,29 +18,6 @@ from httpGet import httpGetContent
 from stockqtl.common import decimal, validate_decimal, str_to_date
 
 
-#todo  正常可以用
-def stock_base_code():
-    """
-    根据同花顺股票列表数据，得到股票信息
-    code: 600383
-    name :金地集团
-    market： sh,sz
-    sh:上证股票
-    sz:深证股票
-    """
-    file = os.path.dirname(__file__) + '/code.txt'
-    regex = re.compile('(\d{6})')
-    f = open(file, 'r')
-    lines = f.readlines()
-    for line in lines:
-        line = line.strip('\n')
-        if line != '':
-            p = line.decode('GBK').encode('utf8')
-            market = p[:2]
-            code = re.findall(regex, p)[0]
-            name = p.split('\t')[1].strip('\t')
-            yield (code, name, market)
-    f.close()
 
 
 # todo 正常可用
